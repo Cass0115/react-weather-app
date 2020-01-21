@@ -1,39 +1,53 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div class="wrapper"> 
-//         <h1>Weather</h1> 
-
-//       </div>
-//     );
-//   }
-// }
+import Titles from "./components/Titles";
+import Form from "./components/Form";
+import Weather from "./components/Weather";
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+const API_KEY = "0d1548ee736784b23abbe6a2cce6a6a6";
 
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>New paragraph!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined
+  }
+
+  getWeather = async (e) => {
+    e.preventDefault();
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`);
+    const data = await api_call.json();
+    console.log(data);
+    this.setState({
+      temperature: data.main.temp,
+      city: data.name
+    })
+  }
+  
+  
+  render() {
+    return (
+    <div className="wrapper"> 
+      <Titles />
+      
+        <Form getWeather={this.getWeather}/>
+        <Weather
+          temperature={this.state.temperature}
+          humitidy={this.state.humidity}
+          city={this.state.city}
+          country={this.state.country}
+          error={this.state.error}
+        />
+      
     </div>
-  );
+    );
+  }
 }
 
 export default App;
