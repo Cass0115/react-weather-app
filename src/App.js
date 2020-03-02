@@ -4,7 +4,7 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 // import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
-import * as reactRouter from "react-router";
+// import * as reactRouter from "react-router";
 
 
 const API_KEY = "0d1548ee736784b23abbe6a2cce6a6a6";
