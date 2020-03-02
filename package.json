@@ -2,7 +2,7 @@
   "name": "react-weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://cassiedurr.com/react-weather-app/",
+  "homepage": "http://cass0115.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,8 +14,8 @@
     "serialize-javascript": "^2.1.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
