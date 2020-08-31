@@ -2,14 +2,11 @@ import React from 'react';
 import './App.css';
 import './styles/Weather.css';
 import './styles/Forecast.css';
-import './styles/Title.css';
-
 
 import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
-
 
 // import * as reactRouter from "react-router";
 

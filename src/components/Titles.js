@@ -19,3 +19,4 @@ const Titles = (props) => (
 );
 
 export default Titles;
+
